@@ -1,0 +1,16 @@
+{
+  "name": "tech-blog-website",
+  "version": "1.0.0",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon --env-file=.env server.js",
+    "start": "node server.js"
+  },
+  "author": "imene amirat",
+  "license": "MIT",
+  "description": "Building a Tech Blog Website using HTML, CSS, Node.js, and MySQL",
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  }
+}
