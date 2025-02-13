@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign In</title>
-    <link rel="stylesheet" href="/public/styles/style.css">
+    <link rel="stylesheet" href="/public/styles/sign.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
 </head>
 <body>
@@ -24,11 +24,15 @@
                 <div class="overlay-panel overlay-right">
                     <h1>Welcome Back!</h1>
                     <p>To keep connected with us please login with your personal info</p>
-                    <button class="ghost" onclick="window.location.href='signup.html'">Sign Up</button>
+                    <button class="ghost" onclick="window.location.href='/sign-up'">Sign Up</button>
                 </div>
             </div>
         </div>
     </div>
-    <script src="/public/scripts/script.js"></script>
+    <script>
+        let f =  "Page location is " + window.location.href;
+        console.log(f);
+        
+</script>
 </body>
 </html>
