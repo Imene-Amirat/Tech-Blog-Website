@@ -2,6 +2,8 @@ import http from 'http';
 import fs from 'fs/promises';
 import path from 'path';
 import url from 'url';
+import './models/db.js';
+
 const PORT = process.env.PORT;
 
 const __filename = url.fileURLToPath(import.meta.url);
