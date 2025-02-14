@@ -1,4 +1,5 @@
 import {findUserByEmail} from '../models/userModel.js';
+import bcrypt from 'bcrypt';
 
 export const handleSignIn = async (req,res) => {
     
@@ -18,8 +19,10 @@ export const handleSignIn = async (req,res) => {
                 return res.end(JSON.stringify({ message: 'User not found' }));
             }
 
+            //compare entered password with hashed password
+            const passwordMatch = await bcrypt.compare(password, user.password);
             //check if password is correct
-            if(user.password !== password){
+            if(!passwordMatch){
                 res.writeHead(401,{ 'Content-Type': 'application/json' });
                 return res.end(JSON.stringify({ message: 'Invalid password' }));
             }

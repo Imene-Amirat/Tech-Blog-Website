@@ -2,7 +2,8 @@ import http from 'http';
 import fs from 'fs/promises';
 import path from 'path';
 import url from 'url';
-import { handleSignIn } from './controllers/signinController.js';
+import {handleSignIn} from './controllers/signinController.js';
+import {handleSignUp} from './controllers/signupController.js';
 import './models/db.js';
 
 const PORT = process.env.PORT;
@@ -13,6 +14,8 @@ const __dirname = path.dirname(__filename);
 const server = http.createServer(async (req, res) => {
     if(req.url === '/sign-in' && req.method === 'POST') {
         return handleSignIn(req, res);
+    } else if(req.url === '/sign-up' && req.method === 'POST') {
+        return handleSignUp(req, res);
     }
 
 
