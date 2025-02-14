@@ -2,6 +2,7 @@ import http from 'http';
 import fs from 'fs/promises';
 import path from 'path';
 import url from 'url';
+import { handleSignIn } from './controllers/signinController.js';
 import './models/db.js';
 
 const PORT = process.env.PORT;
@@ -11,14 +12,7 @@ const __dirname = path.dirname(__filename);
 
 const server = http.createServer(async (req, res) => {
     if(req.url === '/sign-in' && req.method === 'POST') {
-        let body = '';
-        req.on('data', (chunk) => {
-            body += chunk.toString();
-        });
-        req.on('end', async () => {
-            const { email, password } = JSON.parse(body);
-            console.log(email, password);
-        });
+        return handleSignIn(req, res);
     }
 
 
