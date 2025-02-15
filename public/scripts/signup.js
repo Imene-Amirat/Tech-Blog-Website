@@ -31,7 +31,7 @@ document.getElementById('signUpForm').addEventListener('submit', async() => {
 
     const data = await response.json();
 
-    if (response.status === 200) {
+    if (response.status === 201) {
         window.location.href = '/home';
     } else {
         document.getElementById('message').innerText = data.message;
