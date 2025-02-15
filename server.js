@@ -31,7 +31,7 @@ const server = http.createServer(async (req, res) => {
     } else if (req.url === '/sign-up') {
         filePath = path.join(__dirname, 'views', 'sign-up.html');
     } else if (req.url.startsWith('/public/')) {
-        // serve static files (CSS & JS)
+        // serve static files (CSS & JS & ejs)
         filePath = path.join(__dirname, req.url);
     } else {
         // Handle 404 errors
