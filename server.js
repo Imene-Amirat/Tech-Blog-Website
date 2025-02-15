@@ -4,7 +4,7 @@ import path from 'path';
 import url from 'url';
 import {handleSignIn} from './controllers/signinController.js';
 import {handleSignUp} from './controllers/signupController.js';
-import {getAllPosts} from './controllers/fetchPostController.js';
+import {getAllPosts, handlecreatePost} from './controllers/postController.js';
 import './models/db.js';
 
 const PORT = process.env.PORT;
@@ -19,6 +19,8 @@ const server = http.createServer(async (req, res) => {
         return handleSignUp(req, res);
     } else if(req.url === '/api/posts' && req.method === 'GET') {
         return getAllPosts(req, res);
+    } else if(req.url === '/api/add-post' && req.method === 'POST') {
+        return handlecreatePost(req, res);
     }
 
 
