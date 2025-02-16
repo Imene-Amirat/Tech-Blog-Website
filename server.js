@@ -22,7 +22,6 @@ const server = http.createServer(async (req, res) => {
     } else if(req.url === '/api/addPost' && req.method === 'POST') {
         return handlecreatePost(req, res);
     } else if(req.url === '/api/userPosts' && req.method === 'GET') {
-        console.log("jjjjjj")
         return handlefetchUserPosts(req, res);
     }
 
