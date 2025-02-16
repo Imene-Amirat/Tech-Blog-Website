@@ -1,0 +1,146 @@
+/* General Styles */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Makes sure the page always takes at least the full viewport height */
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f8f8f8;
+    color: #333;
+}
+
+/* Main content should grow to push the footer down */
+main {
+    flex: 1;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+/* Header */
+header {
+    background: white;
+    padding: 20px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    margin: 0 auto;
+}
+
+/* Blog Title */
+.header-container h1 {
+    margin: 0;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.subtitle {
+    color: gray;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+/* Navigation */
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #666;
+    font-size: 14px;
+}
+
+nav ul li a:hover {
+    color: black;
+}
+
+
+
+
+/* User Posts */
+/* Container */
+.container {
+    width: 60%;
+    margin: 50px auto;
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Blog Post Card */
+.post {
+    background: #fff;
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    text-align: left;
+}
+
+.post h2 {
+    margin: 0;
+    color: black;
+}
+
+.post p {
+    color: #666;
+    font-size: 14px;
+}
+
+/* Buttons */
+.post .actions {
+    margin-top: 10px;
+    text-align: right;
+}
+
+.post button {
+    padding: 8px 12px;
+    margin-left: 5px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.edit-btn {
+    background: #4CAF50;
+    color: white;
+}
+
+.delete-btn {
+    background: red;
+    color: white;
+}
+
+.post button:hover {
+    opacity: 0.8;
+}
+
+
+
+/* Footer */
+footer {
+    background: white; /* Ensures the footer stands out from the grey background */
+    text-align: center;
+    padding: 15px 0;
+    width: 100%;
+    box-shadow: 0 -1px 3px rgba(0, 0, 0, 0.1);
+}

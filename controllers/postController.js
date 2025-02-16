@@ -1,5 +1,5 @@
 import { raw } from 'mysql2';
-import {fetchAllPosts, createPost} from '../models/postModel.js';
+import {fetchAllPosts, createPost, fetchUserPosts} from '../models/postModel.js';
 
 export const getAllPosts = async (req, res) => {
     try {
@@ -42,6 +42,28 @@ export const handlecreatePost = async (req, res) => {
     });
 };
 
+export const handlefetchUserPosts = async (req, res) => {
+    try {
+        //extract cookie from request header
+        const cookie = parseCookies(req);
+        const userId = cookie.userId;
+        console.log(userId);
+
+        if (!userId) {
+            res.writeHead(401, { 'Content-Type': 'application/json' });
+            return res.end(JSON.stringify({ message: 'Unauthorized: Please sign in' }));
+        }
+
+        const userPosts = await fetchUserPosts(userId);
+        console.log(userPosts);
+
+        res.writeHead(200, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({ message: 'fetch user posts' }));
+    } catch (error) {
+        res.writeHead(500, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({ message: error.message }));
+    }
+};
 
 //parse cookie from request header
 const parseCookies = (req) => {

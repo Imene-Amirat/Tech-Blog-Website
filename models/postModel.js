@@ -18,3 +18,12 @@ export const createPost = async(post, userId) => {
         throw new Error("Database query failed");
     }
 };
+
+export const fetchUserPosts = async(userId) => {
+    try {
+        const [posts] = await connection.query('SELECT * FROM posts WHERE user_id = ? ORDER BY datePost DESC', [userId]);
+        return posts;
+    } catch(error) {
+        throw new Error("Database query failed");
+    }
+};
