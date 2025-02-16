@@ -19,7 +19,7 @@ const server = http.createServer(async (req, res) => {
         return handleSignUp(req, res);
     } else if(req.url === '/api/posts' && req.method === 'GET') {
         return getAllPosts(req, res);
-    } else if(req.url === '/api/add-post' && req.method === 'POST') {
+    } else if(req.url === '/api/addPost' && req.method === 'POST') {
         return handlecreatePost(req, res);
     }
 

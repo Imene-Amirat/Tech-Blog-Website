@@ -9,10 +9,10 @@ export const fetchAllPosts = async() => {
     }
 };
 
-export const createPost = async(post) => {
+export const createPost = async(post, userId) => {
     try {
-        const sql = 'INSERT INTO posts (title, content, datePost, userId) VALUES (?, ?, ?)';
-        const [res] = await connection.query(sql, [post.title, post.content, post.datePost, post.userId]);
+        const sql = 'INSERT INTO posts (title, content, datePost, user_id) VALUES (?, ?, ?, ?)';
+        const [res] = await connection.query(sql, [post.title, post.content, post.datePost, userId]);
         return res;
     } catch(error) {
         throw new Error("Database query failed");

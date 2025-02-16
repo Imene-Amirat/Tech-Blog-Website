@@ -21,10 +21,12 @@ export const handleSignUp = async (req, res) => {
             }
 
             const userId = await createUser(user);
-            console.log(userId);
 
-            res.writeHead(201, { 'Content-Type': 'application/json' });
-            res.end(JSON.stringify({ message: 'User created' }));
+            res.writeHead(201, { 
+                'Content-Type': 'application/json',
+                'Set-Cookie': `userId=${userId}; HttpOnly; Max-Age=3600; Path=/`
+            });
+            res.end(JSON.stringify({ message: 'User created', userId: userId }));
 
         } catch(error) {
             res.writeHead(500, { 'Content-Type': 'application/json' });

@@ -27,8 +27,12 @@ export const handleSignIn = async (req,res) => {
                 return res.end(JSON.stringify({ message: 'Invalid password' }));
             }
 
-            res.writeHead(200, { "Content-Type": "application/json" });
-            res.end(JSON.stringify({ message: "Sign in successful" }));
+            //set userId in a cookie
+            res.writeHead(200, { 
+                "Content-Type": "application/json",
+                "Set-Cookie": `userId=${user.id}; HttpOnly; Max-Age=3600; Path=/`
+            });
+            res.end(JSON.stringify({ message: "Sign in successful" , userId: user.id}));
 
         } catch (error) {
             res.writeHead(500, { "Content-Type": "application/json" });
