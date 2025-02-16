@@ -70,65 +70,72 @@ nav ul li a:hover {
     color: black;
 }
 
-/* Blog Section */
-h2 {
-    border-bottom: 2px solid #ddd;
-    padding-bottom: 10px;
-}
 
-.post-list {
-    margin-top: 20px;
-}
-
-.blog-item {
+/* Container */
+.container {
+    width: 50%;
+    margin: 50px auto;
     background: white;
-    padding: 15px;
-    margin: 10px 0;
+    padding: 20px;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding-right: 40px;
 }
 
-.blog-title {
+/* Titles */
+h1, h2 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+/* Form */
+form {
     display: flex;
-    align-items: center;
+    flex-direction: column;
 }
 
-.blog-title .bar {
-    width: 5px;
-    height: 20px;
+label {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+input, textarea {
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 16px;
+    width: 100%;
+}
+
+textarea {
+    resize: vertical;
+}
+
+/* Submit Button */
+button {
+    margin-top: 15px;
+    padding: 12px;
+    font-size: 16px;
+    color: white;
     background: red;
-    display: inline-block;
-    margin-right: 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 3px;
+
+    /* Centering */
+    display: block;  /* Ensures it takes full width */
+    margin: 15px auto; /* Centers horizontally */
+    width: 50%; /* Optional: Adjust width */
+    text-align: center;
 }
 
-.blog-title h3 {
-    margin: 0;
-    font-size: 18px;
+button:hover {
+    background: darkred;
 }
 
-/* Blog Titles */
-.blog-title h3 {
-    margin: 0;
-    font-size: 18px;
-    transition: color 0.3s ease-in-out;
-}
 
-.blog-title h3 a {
-    text-decoration: none;
-    color: black;
-}
 
-.blog-title h3 a:hover {
-    color: red; /* Change color on hover */
-}
-
-/* Blog Date */
-.blog-date {
-    display: block;
-    font-size: 12px;
-    color: gray;
-    margin-top: 3px;
-}
 
 /* Footer */
 footer {

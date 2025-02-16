@@ -32,6 +32,8 @@ const server = http.createServer(async (req, res) => {
         filePath = path.join(__dirname, 'views', 'sign-in.html');
     } else if (req.url === '/sign-up') {
         filePath = path.join(__dirname, 'views', 'sign-up.html');
+    } else if (req.url === '/newPost') {
+        filePath = path.join(__dirname, 'views', 'newPost.html');
     } else if (req.url.startsWith('/public/')) {
         // serve static files (CSS & JS & ejs)
         filePath = path.join(__dirname, req.url);

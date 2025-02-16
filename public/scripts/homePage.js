@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             `
         });
 
-        document.querySelector('.blog-list').innerHTML = postsContainer;
+        document.querySelector('.post-list').innerHTML = postsContainer;
 
     } catch (error) {
         console.error("Error fetching posts:", error);
