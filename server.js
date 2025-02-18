@@ -40,6 +40,8 @@ const server = http.createServer(async (req, res) => {
         filePath = path.join(__dirname, 'views', 'newPost.html');
     } else if (req.url === '/userPosts') {
         filePath = path.join(__dirname, 'views', 'userPosts.html');
+    } else if (req.url === '/userPosts') {
+        filePath = path.join(__dirname, 'views', 'editPost.html');
     } else if (req.url.startsWith('/public/')) {
         // serve static files (CSS & JS & ejs)
         filePath = path.join(__dirname, req.url);
