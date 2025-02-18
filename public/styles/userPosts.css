@@ -75,65 +75,88 @@ nav ul li a:hover {
 
 /* User Posts */
 /* Container */
-.container {
-    width: 60%;
-    margin: 50px auto;
+/* Header */
+h2 {
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 10px;
+}
+.no-posts{
+    text-align: center;
+    margin-top: 120px;
+    font-size: 18px;
+    color: #666;
+}
+
+.post-list {
+    margin-top: 20px;
+}
+
+.blog-item {
     background: white;
-    padding: 20px;
+    padding: 15px;
+    margin: 10px 0;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    text-align: center;
 }
 
-/* Blog Post Card */
-.post {
-    background: #fff;
-    border: 1px solid #ddd;
-    padding: 15px;
-    margin-bottom: 15px;
-    border-radius: 5px;
-    text-align: left;
+.blog-title {
+    display: flex;
+    align-items: center;
 }
 
-.post h2 {
+.blog-title h3 {
     margin: 0;
+    font-size: 18px;
+}
+
+/* Blog Titles */
+.blog-title h3 {
+    margin: 0;
+    font-size: 18px;
+    transition: color 0.3s ease-in-out;
+}
+
+.blog-title h3 a {
+    text-decoration: none;
     color: black;
 }
 
-.post p {
-    color: #666;
-    font-size: 14px;
+/* Blog Date */
+.blog-date {
+    display: block;
+    font-size: 12px;
+    color: gray;
+    margin-top: 3px;
 }
 
-/* Buttons */
-.post .actions {
-    margin-top: 10px;
-    text-align: right;
+.icons {
+    display: flex;
+    gap: 10px;
+    margin-left: auto;
 }
 
-.post button {
-    padding: 8px 12px;
-    margin-left: 5px;
-    border: none;
-    border-radius: 3px;
+.icons i {
     cursor: pointer;
-    font-size: 14px;
+    font-size: 18px;
 }
 
-.edit-btn {
-    background: #4CAF50;
-    color: white;
+/* Edit icon */
+.icons .edit-post {
+    color: #4CAF50;
 }
 
-.delete-btn {
-    background: red;
-    color: white;
+.icons .edit-post:hover {
+    color: #2E7D32;
 }
 
-.post button:hover {
-    opacity: 0.8;
+/* Delete post */
+.icons .delete-post {
+    color: red;
 }
 
+.icons .delete-post:hover {
+    color: darkred;
+}
 
 
 /* Footer */

@@ -1,5 +1,5 @@
 import { raw } from 'mysql2';
-import {fetchAllPosts, createPost, fetchUserPosts} from '../models/postModel.js';
+import {fetchAllPosts, createPost, fetchUserPosts,deletePost} from '../models/postModel.js';
 
 export const getAllPosts = async (req, res) => {
     try {
@@ -58,12 +58,30 @@ export const handlefetchUserPosts = async (req, res) => {
         console.log(userPosts);
 
         res.writeHead(200, { 'Content-Type': 'application/json' });
-        res.end(JSON.stringify({ message: 'fetch user posts' }));
+        res.end(JSON.stringify(userPosts));
     } catch (error) {
         res.writeHead(500, { 'Content-Type': 'application/json' });
         res.end(JSON.stringify({ message: error.message }));
     }
 };
+
+export const handleDeletePost = async (req, res) => {
+    try {
+        const postId = req.url.split("/").pop();
+
+        //extract cookie from request header
+        const cookie = parseCookies(req);
+        const userId = cookie.userId;
+        
+        const result = await deletePost(userId, postId);
+
+        res.writeHead(200, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({message: 'Post Delete successful'}));
+    } catch(error){
+        res.writeHead(500, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({ message: error.message }));
+    }
+}
 
 //parse cookie from request header
 const parseCookies = (req) => {

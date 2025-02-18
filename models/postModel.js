@@ -27,3 +27,12 @@ export const fetchUserPosts = async(userId) => {
         throw new Error("Database query failed");
     }
 };
+
+export const deletePost = async(userId, postId) => {
+    try {
+        const [res] = await connection.query('DELETE FROM posts WHERE user_id = ? AND id = ?', [userId, postId]);
+        return res;
+    } catch(error) {
+        throw new Error("Database query failed");
+    }
+};
