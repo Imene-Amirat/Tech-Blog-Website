@@ -4,7 +4,7 @@ import path from 'path';
 import url from 'url';
 import {handleSignIn} from './controllers/signinController.js';
 import {handleSignUp} from './controllers/signupController.js';
-import {getAllPosts, handlecreatePost, handlefetchUserPosts, handleDeletePost} from './controllers/postController.js';
+import {getAllPosts, handlecreatePost, handlefetchUserPosts, handleDeletePost, handleGetPostById} from './controllers/postController.js';
 import './models/db.js';
 
 const PORT = process.env.PORT;
@@ -25,6 +25,8 @@ const server = http.createServer(async (req, res) => {
         return handlefetchUserPosts(req, res);
     } else if(req.url.startsWith('/api/deletePost/')&& req.method === 'DELETE') {
         return handleDeletePost(req, res);
+    } else if(req.url.startsWith('/api/getPostByIdPosts/')&& req.method === 'GET') {
+        return handleGetPostById(req, res);
     }
 
 
@@ -40,7 +42,7 @@ const server = http.createServer(async (req, res) => {
         filePath = path.join(__dirname, 'views', 'newPost.html');
     } else if (req.url === '/userPosts') {
         filePath = path.join(__dirname, 'views', 'userPosts.html');
-    } else if (req.url === '/userPosts') {
+    } else if (req.url.startsWith('/editPosts/')) {
         filePath = path.join(__dirname, 'views', 'editPost.html');
     } else if (req.url.startsWith('/public/')) {
         // serve static files (CSS & JS & ejs)

@@ -1,5 +1,5 @@
 import { raw } from 'mysql2';
-import {fetchAllPosts, createPost, fetchUserPosts,deletePost} from '../models/postModel.js';
+import {fetchAllPosts, createPost, fetchUserPosts,deletePost, getPostById} from '../models/postModel.js';
 
 export const getAllPosts = async (req, res) => {
     try {
@@ -77,6 +77,28 @@ export const handleDeletePost = async (req, res) => {
 
         res.writeHead(200, { 'Content-Type': 'application/json' });
         res.end(JSON.stringify({message: 'Post Delete successful'}));
+    } catch(error){
+        res.writeHead(500, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({ message: error.message }));
+    }
+}
+
+export const handleGetPostById = async (req, res) => {
+    try {
+        console.log("iiiiiiiiiiiii");
+        const postId = req.url.split("/").pop();
+        console.log(postId);
+
+        //extract cookie from request header
+        const cookie = parseCookies(req);
+        const userId = cookie.userId;
+        console.log(userId);
+        
+        const result = await getPostById(userId, postId);
+
+        res.writeHead(200, { 'Content-Type': 'application/json' });
+        console.log(JSON.stringify(result));
+        res.end(JSON.stringify(result));
     } catch(error){
         res.writeHead(500, { 'Content-Type': 'application/json' });
         res.end(JSON.stringify({ message: error.message }));
