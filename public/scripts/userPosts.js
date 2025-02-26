@@ -1,9 +1,10 @@
 document.addEventListener("DOMContentLoaded", async () => {
+    console.log('eee');
     try {
         const response = await fetch("/api/userPosts");
         const posts = await response.json();
-
-        if(posts.length === 0) {
+        console.log(posts);
+        if(posts.length === 0 || !response.ok) {
             document.querySelector('.post-list').innerHTML = `<p class="no-posts">No posts yet</p>`;
             return;
         }
@@ -56,5 +57,5 @@ async function deletePost(id) {
 }
 
 function editPost(id) {
-    window.location.href = `/editPost?id=${id}`;
+    window.location.href = `/editPosts/${id}`;
 }
