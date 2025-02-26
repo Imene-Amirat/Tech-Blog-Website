@@ -27,7 +27,9 @@ const server = http.createServer(async (req, res) => {
         return handleDeletePost(req, res);
     } else if(req.url.startsWith('/api/getPostByIdPosts/')&& req.method === 'GET') {
         return handleGetPostById(req, res);
-    }
+    } else if(req.url === '/api/editPosts' && req.method === 'PUT') {
+        return handlefetchUserPosts(req, res);
+    } 
 
 
     // Serve HTML pages
