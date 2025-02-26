@@ -1,13 +1,10 @@
 document.addEventListener("DOMContentLoaded", async () => {
     const pathParts = window.location.pathname.split('/'); 
     const postId = pathParts[pathParts.length - 1]; 
-    console.log(postId);
 
     try{
-        console.log('eeeeeeeeeeeee');
         const response = await fetch(`/api/getPostByIdPosts/${postId}`);
         const post = await response.json();
-        console.log(post[0].title);
 
         document.getElementById('title').value = post[0].title;
         document.getElementById('content').value = post[0].content;

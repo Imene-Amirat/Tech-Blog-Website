@@ -5,10 +5,6 @@ document.getElementById('newPostForm').addEventListener('submit', async() => {
     const content = document.getElementById('content').value;
     const date = document.getElementById('date').value;
 
-    console.log(title);
-    console.log(content);
-    console.log(date);
-
     const response = await fetch('/api/addPost', {
         method: 'POST',
         headers: {
@@ -16,8 +12,6 @@ document.getElementById('newPostForm').addEventListener('submit', async() => {
         },
         body: JSON.stringify({ title, content, date })
     });
-
-    console.log(response);
 
     const data = await response.json();
 

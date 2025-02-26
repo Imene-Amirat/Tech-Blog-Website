@@ -1,9 +1,9 @@
 document.addEventListener("DOMContentLoaded", async () => {
-    console.log('eee');
+    
     try {
         const response = await fetch("/api/userPosts");
         const posts = await response.json();
-        console.log(posts);
+
         if(posts.length === 0 || !response.ok) {
             document.querySelector('.post-list').innerHTML = `<p class="no-posts">No posts yet</p>`;
             return;
