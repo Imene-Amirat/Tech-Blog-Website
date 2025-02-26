@@ -1,0 +1,147 @@
+/* General Styles */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Makes sure the page always takes at least the full viewport height */
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f8f8f8;
+    color: #333;
+}
+
+/* Main content should grow to push the footer down */
+main {
+    flex: 1;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+/* Header */
+header {
+    background: white;
+    padding: 20px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    margin: 0 auto;
+}
+
+/* Blog Title */
+.header-container h1 {
+    margin: 0;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.subtitle {
+    color: gray;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+/* Navigation */
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #666;
+    font-size: 14px;
+}
+
+nav ul li a:hover {
+    color: black;
+}
+
+
+/* Container */
+.container {
+    width: 50%;
+    margin: 50px auto;
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding-right: 40px;
+}
+
+/* Titles */
+h1, h2 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+/* Form */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+input, textarea {
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 16px;
+    width: 100%;
+}
+
+textarea {
+    resize: vertical;
+}
+
+/* Submit Button */
+button {
+    margin-top: 15px;
+    padding: 12px;
+    font-size: 16px;
+    color: white;
+    background: red;
+    border: none;
+    cursor: pointer;
+    border-radius: 3px;
+
+    /* Centering */
+    display: block;  /* Ensures it takes full width */
+    margin: 15px auto; /* Centers horizontally */
+    width: 50%; /* Optional: Adjust width */
+    text-align: center;
+}
+
+button:hover {
+    background: darkred;
+}
+
+
+
+
+/* Footer */
+footer {
+    background: white; /* Ensures the footer stands out from the grey background */
+    text-align: center;
+    padding: 15px 0;
+    width: 100%;
+    box-shadow: 0 -1px 3px rgba(0, 0, 0, 0.1);
+}
