@@ -4,7 +4,7 @@ import path from 'path';
 import url from 'url';
 import {handleSignIn} from './controllers/signinController.js';
 import {handleSignUp} from './controllers/signupController.js';
-import {getAllPosts, handlecreatePost, handlefetchUserPosts, handleDeletePost, handleGetPostById} from './controllers/postController.js';
+import {getAllPosts, handlecreatePost, handlefetchUserPosts, handleDeletePost, handleGetPostById, handleEditPost} from './controllers/postController.js';
 import './models/db.js';
 
 const PORT = process.env.PORT;
@@ -27,8 +27,8 @@ const server = http.createServer(async (req, res) => {
         return handleDeletePost(req, res);
     } else if(req.url.startsWith('/api/getPostByIdPosts/')&& req.method === 'GET') {
         return handleGetPostById(req, res);
-    } else if(req.url === '/api/editPosts' && req.method === 'PUT') {
-        return handlefetchUserPosts(req, res);
+    } else if(req.url === '/api/editPost' && req.method === 'PUT') {
+        return handleEditPost(req, res);
     } 
 
 

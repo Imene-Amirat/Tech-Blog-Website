@@ -1,5 +1,5 @@
 import { raw } from 'mysql2';
-import {fetchAllPosts, createPost, fetchUserPosts,deletePost, getPostById} from '../models/postModel.js';
+import {fetchAllPosts, createPost, fetchUserPosts,deletePost, getPostById, updatePost} from '../models/postModel.js';
 
 export const getAllPosts = async (req, res) => {
     try {
@@ -99,6 +99,35 @@ export const handleGetPostById = async (req, res) => {
         res.writeHead(500, { 'Content-Type': 'application/json' });
         res.end(JSON.stringify({ message: error.message }));
     }
+}
+
+export const handleEditPost = async(req, res) => {
+    let body = '';
+    req.on('data', chunk => {
+        body += chunk.toString();
+    });
+    req.on('end', async () => {
+        try {
+            //extract cookie from request header
+            const cookie = parseCookies(req);
+            const userId = Number(cookie.userId);
+
+            const post = JSON.parse(body);
+            
+            const result = await updatePost(userId, Number(post.postId), post);
+            
+            if (result > 0) {
+                res.writeHead(200, { 'Content-Type': 'application/json' });
+                res.end(JSON.stringify({ message: 'Post updated successfully' }));
+            } else {
+                res.writeHead(404, { 'Content-Type': 'application/json' });
+                res.end(JSON.stringify({ message: 'Post not found or not updated' }));
+            }
+        } catch (error) {
+            res.writeHead(500, { 'Content-Type': 'application/json' });
+            res.end(JSON.stringify({ message: error.message }));
+        }
+    });
 }
 
 //parse cookie from request header

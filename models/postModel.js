@@ -44,4 +44,13 @@ export const getPostById = async(userId, postId) => {
     } catch(error) {
         throw new Error("Database query failed");
     }
-}
+};
+
+export const updatePost = async(userId, postId, post) => {
+    try {
+        const [result] = await connection.query('UPDATE posts SET title = ?, content = ?, datePost = ? WHERE user_id = ? AND id = ?',[post.title, post.content, post.date, userId, postId]);
+        return result.affectedRows;
+    } catch(error) {
+        throw new Error("Database query failed");
+    }
+};

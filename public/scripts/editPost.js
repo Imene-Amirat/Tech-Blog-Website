@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         console.log("Error fetching posts:", error)
     }
 
-    document.getElementById('newPostForm').addEventListener('submit', async() => {
+    document.getElementById('editPostForm').addEventListener('submit', async() => {
         event.preventDefault();
 
         const title = document.getElementById('title').value;
@@ -26,13 +26,13 @@ document.addEventListener("DOMContentLoaded", async () => {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ title, content, date })
+            body: JSON.stringify({ postId, title, content, date })
         });
 
         const data = await response.json();
 
         if(response.status === 200) {
-            window.location.href = '/home';
+            window.location.href = '/userPosts';
         } else {
             document.getElementById('message').innerText = data.message;
         }
